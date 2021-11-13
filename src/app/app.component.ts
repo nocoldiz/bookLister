@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { selectUserCollection, selectUsers } from './store/selectors/user.selector';
+import { selectBookCollection, selectBooks } from './store/selectors/book.selector';
 import {
-  removeUserAction,
-  addUserAction,
-  getUserListAction
-} from './store/actions/user.actions';
+  removeBook,
+  addBook,
+  retrievedBookList
+} from './store/actions/book.actions';
 import { ApiService } from './services/api.service';
 
 @Component({
@@ -14,15 +14,15 @@ import { ApiService } from './services/api.service';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  users$ = this.store.select(selectUsers);
-  userCollection$ = this.store.select(selectUserCollection);
+  books$ = this.store.select(selectBooks);
+  bookCollection$ = this.store.select(selectBookCollection);
 
-  onAdd(userId: string) {
-    this.store.dispatch(addUserAction({ userId }));
+  onAdd(bookId: string) {
+    this.store.dispatch(addBook({ bookId }));
   }
 
-  onRemove(userId: string) {
-    this.store.dispatch(removeUserAction({ userId }));
+  onRemove(bookId: string) {
+    this.store.dispatch(removeBook({ bookId }));
   }
 
   constructor(
@@ -32,7 +32,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.apiService
-      .getUsers()
-      .subscribe((users) => this.store.dispatch(getUserListAction({ users })));
+      .getBooks()
+      .subscribe((books) => this.store.dispatch(retrievedBookList({ books })));
   }
 }

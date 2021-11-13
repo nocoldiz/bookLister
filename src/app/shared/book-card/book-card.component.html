@@ -1,0 +1,19 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      {{book.id}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{book.volumeInfo.title}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src={{book.volumeInfo.title}} alt="Photo of  {{book.volumeInfo.title}}">
+  <mat-card-content>
+    {{book.volumeInfo.authors}}
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Extract</button>
+    <button mat-button>Remove</button>
+  </mat-card-actions>
+</mat-card>

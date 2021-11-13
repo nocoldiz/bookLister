@@ -1,5 +1,0 @@
-<div class="user-item" *ngFor="let user of users">
-  <p>{{user.volumeInfo.title}}</p>
-  <span> by {{user.volumeInfo.authors}}</span>
-  <button (click)="remove.emit(user.id)" data-test="remove-button">Remove from Collection</button>
-</div>

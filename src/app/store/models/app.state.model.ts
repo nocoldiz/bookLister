@@ -1,7 +1,7 @@
-import { User } from './user.model';
+import { Book } from './book.model';
 
 export interface AppState {
-    users: ReadonlyArray<User>;
+    books: ReadonlyArray<Book>;
     collection: ReadonlyArray<string>;
 
 }

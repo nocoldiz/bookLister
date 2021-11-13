@@ -1,14 +1,14 @@
 import { createReducer, on } from '@ngrx/store';
-import { addUserAction, removeUserAction } from '../actions/user.actions';
+import { addBook, removeBook } from '../actions/book.actions';
 
 export const initialState: ReadonlyArray<string> = [];
 
 export const CollectionReducer = createReducer(
     initialState,
-    on(addUserAction, (state, { userId }) => state.filter((id) => id !== userId)),
-    on(removeUserAction, (state, { userId }) => {
-        if (state.indexOf(userId) > -1) return state;
+    on(addBook, (state, { bookId }) => state.filter((id) => id !== bookId)),
+    on(removeBook, (state, { bookId }) => {
+        if (state.indexOf(bookId) > -1) return state;
 
-        return [...state, userId];
+        return [...state, bookId];
     })
 );

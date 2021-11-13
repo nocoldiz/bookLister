@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { of, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from '../store/models/user.model';
+import { Book } from '../store/models/book.model';
 import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -11,11 +11,11 @@ import { environment } from '../../environments/environment';
 export class ApiService {
     constructor(private http: HttpClient) { }
 
-    getUsers(): Observable<Array<User>> {
+    getBooks(): Observable<Array<Book>> {
         return this.http
-            .get<{ items: User[] }>(
+            .get<{ items: Book[] }>(
                 environment.apiUrl
             )
-            .pipe(map((users) => users.items || []));
+            .pipe(map((books) => books.items || []));
     }
 }
