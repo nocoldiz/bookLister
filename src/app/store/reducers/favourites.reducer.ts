@@ -3,7 +3,7 @@ import { addBook, removeBook } from '../actions/book.actions';
 
 export const initialState: ReadonlyArray<string> = [];
 
-export const CollectionReducer = createReducer(
+export const FavouritesReducer = createReducer(
     initialState,
     on(addBook, (state, { bookId }) => state.filter((id) => id !== bookId)),
     on(removeBook, (state, { bookId }) => {

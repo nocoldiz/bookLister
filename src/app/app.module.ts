@@ -7,12 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 //Ngrx Store 
 import { StoreModule } from '@ngrx/store';
-import { CollectionReducer } from './store/reducers/collection.reducer';
+import { FavouritesReducer } from './store/reducers/favourites.reducer';
 import { BookReducer } from './store/reducers/book.reducer';
 
 // Custom components
 import { BookListComponent } from './core/book-list/book-list.component'
-import { BookCollectionComponent } from './core/book-collection/book-collection.component';
+import { BookFavouritesComponent } from './core/book-favourites/book-favourites.component';
 import { BookCardComponent } from './shared/book-card/book-card.component';
 
 
@@ -29,14 +29,14 @@ import { MatDialogModule } from '@angular/material/dialog';
   declarations: [
     AppComponent,
     BookListComponent,
-    BookCollectionComponent,
+    BookFavouritesComponent,
     BookCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({ books: BookReducer, collection: CollectionReducer }),
+    StoreModule.forRoot({ books: BookReducer, favourites: FavouritesReducer }),
     BrowserAnimationsModule,
     HttpClientModule,
     MatCardModule,

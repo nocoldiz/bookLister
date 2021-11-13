@@ -1,5 +1,14 @@
 import { createAction, props } from '@ngrx/store';
-import { Book } from '../models/book.model';
+import { Book } from '../../models/book.model';
+
+export const enum BookActionTypes {
+    ADD_BOOK = '[Book Favourites] Add Book',
+    REMOVE_BOOK = '[Book Favourites] Remove Book',
+    GET_BOOKS = '[API] Retrieve Books',
+    GET_BOOKS_SUCCESS = '[API] Retrieve Books Success',
+    GET_BOOKS_FAILURE = '[API] Retrieve Books Failure',
+};
+
 
 export const addBook = createAction(
     '[Book List] Add Book',
@@ -7,11 +16,11 @@ export const addBook = createAction(
 );
 
 export const removeBook = createAction(
-    '[Book Collection] Remove Book',
+    '[Book Favourites] Remove Book',
     props<{ bookId: string }>()
 );
 
 export const retrievedBookList = createAction(
-    '[Book List/API] Retrieve Books Success',
+    '[API] Retrieve Books Success',
     props<{ books: ReadonlyArray<Book> }>()
 );

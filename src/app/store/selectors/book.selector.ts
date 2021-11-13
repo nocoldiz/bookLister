@@ -1,14 +1,14 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { Book } from '../models/book.model';
+import { Book } from '../../models/book.model';
 
 export const selectBooks = createFeatureSelector<ReadonlyArray<Book>>('books');
 
-export const selectCollectionState = createFeatureSelector<ReadonlyArray<string>>('collection');
+export const selectFavouritesState = createFeatureSelector<ReadonlyArray<string>>('favourites');
 
-export const selectBookCollection = createSelector(
+export const selectBookFavourites = createSelector(
     selectBooks,
-    selectCollectionState,
-    (books, collection) => {
-        return collection.map((id) => books.find((book) => book.id === id));
+    selectFavouritesState,
+    (books, favourites) => {
+        return favourites.map((id) => books.find((book) => book.id === id));
     }
 );

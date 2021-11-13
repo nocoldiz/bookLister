@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Book } from '../models/book.model';
+import { Book } from '../../models/book.model';
 
 import { retrievedBookList } from '../actions/book.actions';
 
