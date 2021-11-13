@@ -1,0 +1,5 @@
+<div class="user-item" *ngFor="let user of users">
+  <p>{{user.volumeInfo.title}}</p>
+  <span> by {{user.volumeInfo.authors}}</span>
+  <button (click)="add.emit(user.id)" data-test="add-button">Add to Collection</button>
+</div>

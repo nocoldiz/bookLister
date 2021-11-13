@@ -1,10 +1,38 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { selectUserCollection, selectUsers } from './store/selectors/user.selector';
+import {
+  removeUserAction,
+  addUserAction,
+  getUserListAction
+} from './store/actions/user.actions';
+import { GoogleUsersService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'user-list';
+  users$ = this.store.select(selectUsers);
+  userCollection$ = this.store.select(selectUserCollection);
+
+  onAdd(userId: string) {
+    this.store.dispatch(addUserAction({ userId }));
+  }
+
+  onRemove(userId: string) {
+    this.store.dispatch(removeUserAction({ userId }));
+  }
+
+  constructor(
+    private usersService: GoogleUsersService,
+    private store: Store
+  ) { }
+
+  ngOnInit() {
+    this.usersService
+      .getUsers()
+      .subscribe((users) => this.store.dispatch(getUserListAction({ users })));
+  }
 }
