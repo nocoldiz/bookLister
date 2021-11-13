@@ -7,7 +7,7 @@ import {
   addUserAction,
   getUserListAction
 } from './store/actions/user.actions';
-import { GoogleUsersService } from './services/api.service';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -26,12 +26,12 @@ export class AppComponent {
   }
 
   constructor(
-    private usersService: GoogleUsersService,
+    private apiService: ApiService,
     private store: Store
   ) { }
 
   ngOnInit() {
-    this.usersService
+    this.apiService
       .getUsers()
       .subscribe((users) => this.store.dispatch(getUserListAction({ users })));
   }
