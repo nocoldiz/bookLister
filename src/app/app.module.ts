@@ -25,13 +25,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NavbarComponent } from './core/navbar/navbar.component';
+import { HeaderComponent } from './core/header/header.component';
+import { DrawerComponent } from './core/drawer/drawer.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
     BookFavouritesComponent,
-    BookCardComponent
+    BookCardComponent,
+    NavbarComponent,
+    HeaderComponent,
+    DrawerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
