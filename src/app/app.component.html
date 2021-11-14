@@ -7,11 +7,9 @@
   <mat-sidenav-content>
     <app-filters [filters]="filters$ | async"></app-filters>
     <div class="content mat-elevation-z8">
-      <app-book-list class="book-list" [books]="books$ | async" (add)="onAdd($event)"></app-book-list>
-
-      <h2>My Favourites</h2>
-      <app-book-favourites class="book-favourites" [books]="bookFavourites$ | async" (remove)="onRemove($event)">
-      </app-book-favourites>
+      <div [@routeAnimation]="getAnimationData(routerOutlet)">
+        <router-outlet #routerOutlet="outlet"></router-outlet>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
