@@ -33,7 +33,5 @@ export class BookListComponent {
     onRemove(bookId: string) {
         this.store.dispatch(removeBook({ bookId }));
     }
-
-    @Input() books: ReadonlyArray<Book> = [];
     @Output() add = new EventEmitter<string>();
 }
