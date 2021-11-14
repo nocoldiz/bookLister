@@ -7,6 +7,8 @@ import { Filters } from '../../models/filters.model';
     styleUrls: ['./filters.component.scss'],
 })
 export class FiltersComponent {
+    value = 'Searrch';
+
     @Input() filters: ReadonlyArray<Filters> = [];
     @Output() add = new EventEmitter<string>();
 }

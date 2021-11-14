@@ -15,13 +15,13 @@ import { FiltersReducer } from './store/reducers/filters.reducer';
 import { BookListComponent } from './core/book-list/book-list.component'
 import { BookFavouritesComponent } from './core/book-favourites/book-favourites.component';
 import { BookCardComponent } from './shared/book-card/book-card.component';
+import { FiltersComponent } from './core/filters/filters.component';
 
 //Import Layout components
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { HeaderComponent } from './core/header/header.component';
 import { DrawerComponent } from './core/drawer/drawer.component';
 import { FooterComponent } from './core/footer/footer.component';
-
 //Import material components
 import { MatCardModule } from '@angular/material/card';
 //import { MatCardAcModule } from '@angular/material/';
@@ -46,6 +46,7 @@ import { MatDividerModule } from "@angular/material/divider"
     HeaderComponent,
     DrawerComponent,
     FooterComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,
