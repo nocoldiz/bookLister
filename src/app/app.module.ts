@@ -36,6 +36,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDividerModule } from "@angular/material/divider"
+import { MatSelectModule } from "@angular/material/select"
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,8 @@ import { MatDividerModule } from "@angular/material/divider"
     MatSidenavModule,
     MatSlideToggleModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

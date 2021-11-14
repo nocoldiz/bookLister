@@ -1,4 +1,4 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { Filters } from '../../models/filters.model';
 
-export const selectFilters = createFeatureSelector<ReadonlyArray<Filters>>('filters');
+export const selectFilters = createFeatureSelector<Filters>('filters');

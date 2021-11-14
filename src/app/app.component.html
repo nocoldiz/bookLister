@@ -5,7 +5,7 @@
     <app-drawer></app-drawer>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-filters></app-filters>
+    <app-filters [filters]="filters$ | async"></app-filters>
     <div class="content mat-elevation-z8">
       <app-book-list class="book-list" [books]="books$ | async" (add)="onAdd($event)"></app-book-list>
 

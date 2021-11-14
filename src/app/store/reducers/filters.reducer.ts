@@ -5,7 +5,7 @@ import { Filters } from '../../models/filters.model';
 import { setQuery, setAuthor, setIsbn, setSubject } from '../actions/filters.actions';
 
 export const initialState: any = {
-    author: "qqqW",
+    author: "",
     isbn: "",
     query: "",
     publisher: "",

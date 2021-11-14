@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Filters } from '../../models/filters.model';
+import subjectsArray from 'src/assets/categories.json';
+
 
 @Component({
     selector: 'app-filters',
@@ -7,8 +9,8 @@ import { Filters } from '../../models/filters.model';
     styleUrls: ['./filters.component.scss'],
 })
 export class FiltersComponent {
-    value = 'Searrch';
-
-    @Input() filters: ReadonlyArray<Filters> = [];
+    subjects = subjectsArray;
+    @Input() filters: Filters;
     @Output() add = new EventEmitter<string>();
+
 }
