@@ -11,16 +11,16 @@ export const enum BookActionTypes {
 
 
 export const addBook = createAction(
-    '[Book List] Add Book',
+    BookActionTypes.ADD_BOOK,
     props<{ bookId: string }>()
 );
 
 export const removeBook = createAction(
-    '[Book Favourites] Remove Book',
+    BookActionTypes.REMOVE_BOOK,
     props<{ bookId: string }>()
 );
 
 export const retrievedBookList = createAction(
-    '[API] Retrieve Books Success',
+    BookActionTypes.GET_BOOKS_SUCCESS,
     props<{ books: ReadonlyArray<Book> }>()
 );

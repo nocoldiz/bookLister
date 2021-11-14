@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { selectBookFavourites, selectBooks } from './store/selectors/book.selector';
+import { selectFilters } from './store/selectors/filters.selector';
+
 import {
   removeBook,
   addBook,
@@ -16,6 +18,7 @@ import { ApiService } from './services/api.service';
 export class AppComponent {
   books$ = this.store.select(selectBooks);
   bookFavourites$ = this.store.select(selectBookFavourites);
+  filters$ = this.store.select(selectFilters);
 
   onAdd(bookId: string) {
     this.store.dispatch(addBook({ bookId }));

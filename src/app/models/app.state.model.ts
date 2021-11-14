@@ -1,7 +1,9 @@
 import { Book } from './book.model';
+import { Filters } from './filters.model';
 
 export interface AppState {
     books: ReadonlyArray<Book>;
-    favourites: ReadonlyArray<string>;
+    favourites: Array<string>;
+    filters: Filters;
 
 }
