@@ -1,11 +1,18 @@
 <app-navbar></app-navbar>
-<app-drawer></app-drawer>
 
+<mat-sidenav-container flex style="height: -webkit-calc(100% - 76px)">
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <app-drawer></app-drawer>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <h2>Books</h2>
+      {{filters$}}
+      <app-book-list class="book-list" [books]="books$ | async" (add)="onAdd($event)"></app-book-list>
 
-<h2>Books</h2>
-{{filters$}}
-<app-book-list class="book-list" [books]="books$ | async" (add)="onAdd($event)"></app-book-list>
-
-<h2>My Favourites</h2>
-<app-book-favourites class="book-favourites" [books]="bookFavourites$ | async" (remove)="onRemove($event)">
-</app-book-favourites>
+      <h2>My Favourites</h2>
+      <app-book-favourites class="book-favourites" [books]="bookFavourites$ | async" (remove)="onRemove($event)">
+      </app-book-favourites>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

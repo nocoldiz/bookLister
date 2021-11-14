@@ -1,6 +1,29 @@
-.example-container {
-  width: 400px;
-  height: 200px;
-  margin: 10px;
-  border: 1px solid #555;
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+
+  mat-icon {
+    margin-right: 8px;
+  }
+}
+
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: lightgrey;
 }

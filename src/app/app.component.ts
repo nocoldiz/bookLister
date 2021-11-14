@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { delay } from 'rxjs';
+import { MatSidenav } from '@angular/material/sidenav';
 
 import { selectBookFavourites, selectBooks } from './store/selectors/book.selector';
 import { selectFilters } from './store/selectors/filters.selector';
@@ -16,6 +19,13 @@ import { ApiService } from './services/api.service';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav;
+  constructor(
+    private apiService: ApiService,
+    private store: Store,
+    private breakpoints: BreakpointObserver
+  ) { }
   books$ = this.store.select(selectBooks);
   bookFavourites$ = this.store.select(selectBookFavourites);
   filters$ = this.store.select(selectFilters);
@@ -28,14 +38,26 @@ export class AppComponent {
     this.store.dispatch(removeBook({ bookId }));
   }
 
-  constructor(
-    private apiService: ApiService,
-    private store: Store
-  ) { }
+
 
   ngOnInit() {
     this.apiService
       .getBooks()
       .subscribe((books) => this.store.dispatch(retrievedBookList({ books })));
+  }
+
+  ngAfterViewInit() {
+    this.breakpoints
+      .observe(['(max-width: 800px)'])
+      .pipe(delay(1))
+      .subscribe((res) => {
+        if (res.matches) {
+          this.sidenav.mode = 'over';
+          this.sidenav.close();
+        } else {
+          this.sidenav.mode = 'side';
+          this.sidenav.open();
+        }
+      });
   }
 }

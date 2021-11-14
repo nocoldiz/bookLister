@@ -24,6 +24,8 @@ import { FooterComponent } from './core/footer/footer.component';
 
 //Import material components
 import { MatCardModule } from '@angular/material/card';
+//import { MatCardAcModule } from '@angular/material/';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -33,7 +35,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import { MatDividerModule } from "@angular/material/divider"
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSidenavModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
