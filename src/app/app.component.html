@@ -1,3 +1,7 @@
+<app-navbar></app-navbar>
+<app-drawer></app-drawer>
+
+
 <h2>Books</h2>
 {{filters$}}
 <app-book-list class="book-list" [books]="books$ | async" (add)="onAdd($event)"></app-book-list>

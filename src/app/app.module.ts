@@ -16,7 +16,11 @@ import { BookListComponent } from './core/book-list/book-list.component'
 import { BookFavouritesComponent } from './core/book-favourites/book-favourites.component';
 import { BookCardComponent } from './shared/book-card/book-card.component';
 
-
+//Import Layout components
+import { NavbarComponent } from './core/navbar/navbar.component';
+import { HeaderComponent } from './core/header/header.component';
+import { DrawerComponent } from './core/drawer/drawer.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 //Import material components
 import { MatCardModule } from '@angular/material/card';
@@ -25,10 +29,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDialogModule } from '@angular/material/dialog';
-import { NavbarComponent } from './core/navbar/navbar.component';
-import { HeaderComponent } from './core/header/header.component';
-import { DrawerComponent } from './core/drawer/drawer.component';
-import { FooterComponent } from './core/footer/footer.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,7 @@ import { FooterComponent } from './core/footer/footer.component';
     NavbarComponent,
     HeaderComponent,
     DrawerComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,11 @@ import { FooterComponent } from './core/footer/footer.component';
     MatButtonModule,
     MatSliderModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
