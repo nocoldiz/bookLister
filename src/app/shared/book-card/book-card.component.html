@@ -1,15 +1,16 @@
-<mat-card class="example-card">
+<mat-card class="book-card">
+
+  <img mat-card-image src={{book.volumeInfo.imageLinks.thumbnail}} alt="Photo of  {{book.volumeInfo.title}}">
   <mat-card-header>
     <mat-card-title>
-      {{book.id}}
+      {{book.volumeInfo.title}}
     </mat-card-title>
     <mat-card-subtitle>
-      {{book.volumeInfo.title}}
+      {{book.volumeInfo.authors}}
+
     </mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src={{book.volumeInfo.imageLinks.thumbnail}} alt="Photo of  {{book.volumeInfo.title}}">
   <mat-card-content>
-    {{book.volumeInfo.authors}}
 
   </mat-card-content>
   <mat-card-actions>

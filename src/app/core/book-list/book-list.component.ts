@@ -3,6 +3,8 @@ import { Book } from '../../models/book.model';
 import { ApiService } from '../../services/api.service';
 import { Store } from '@ngrx/store';
 import { selectBooks } from '../../store/selectors/book.selector';
+import { selectFilters } from '../../store/selectors/filters.selector';
+
 import {
     removeBook,
     addBook,
@@ -20,6 +22,8 @@ export class BookListComponent {
         private store: Store,
     ) { }
     books$ = this.store.select(selectBooks);
+    filters$ = this.store.select(selectFilters);
+
     ngOnInit() {
         this.apiService
             .getBooks()

@@ -5,7 +5,6 @@
     <app-drawer></app-drawer>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-filters [filters]="filters$ | async"></app-filters>
     <div class="content mat-elevation-z8">
       <div [@routeAnimation]="getAnimationData(routerOutlet)">
         <router-outlet #routerOutlet="outlet"></router-outlet>

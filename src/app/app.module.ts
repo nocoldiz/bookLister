@@ -48,7 +48,7 @@ import { MatSelectModule } from "@angular/material/select"
     HeaderComponent,
     DrawerComponent,
     FooterComponent,
-    FiltersComponent
+    FiltersComponent,
   ],
   imports: [
     BrowserModule,
