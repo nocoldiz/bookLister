@@ -9,7 +9,7 @@ export class BookEffects {
 
     loadBooks$ = createEffect(() => this.actions$.pipe(
         ofType(BookActionTypes.GET_BOOKS),
-        mergeMap(() => this.apiService.getBooks()
+        mergeMap(() => this.apiService.getBooks({ search: "Stephen King", isbn: "", author: "", publisher: "", subject: "" })
             .pipe(
                 map(movies => ({ type: BookActionTypes.GET_BOOKS_SUCCESS, payload: movies })),
                 catchError(() => EMPTY)

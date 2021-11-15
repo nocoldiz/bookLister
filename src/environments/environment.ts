@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://www.googleapis.com/books/v1/volumes?maxResults=10&orderBy=relevance&q=cicciogamer"
+  apiUrl: "https://www.googleapis.com/books/v1/volumes?"
 
 };
 

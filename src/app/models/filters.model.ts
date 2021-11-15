@@ -1,5 +1,5 @@
 export interface Filters {
-    query: string;
+    search: string;
     author: string;
     publisher: string;
     subject: string;

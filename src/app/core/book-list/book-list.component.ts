@@ -25,8 +25,11 @@ export class BookListComponent {
     filters$ = this.store.select(selectFilters);
 
     ngOnInit() {
+        let a = this.filters$.subscribe(event => event.search);
+        console.log(a);
+
         this.apiService
-            .getBooks()
+            .getBooks({ search: "Stephen King", isbn: "", author: "", publisher: "", subject: "" })
             .subscribe((books) => this.store.dispatch(retrievedBookList({ books })));
     }
 

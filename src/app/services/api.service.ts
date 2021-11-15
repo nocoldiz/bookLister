@@ -5,16 +5,26 @@ import { of, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Book } from '../models/book.model';
 import { environment } from '../../environments/environment';
+import { Filters } from '../models/filters.model';
 
 @Injectable({ providedIn: 'root' })
-
 export class ApiService {
     constructor(private http: HttpClient) { }
 
-    getBooks(): Observable<Array<Book>> {
+    getBooks(filters: Filters): Observable<Array<Book>> {
+
+        let queryString = filters.search;
+        if (filters.author) queryString.concat('+inauthor:').concat(filters.author);
+
+        const options = new HttpParams()
+            .set('maxResults', 30)
+            .set('orderBy', 'relevance')
+            .set('q', filters.search)
+
         return this.http
             .get<{ items: Book[] }>(
-                environment.apiUrl
+                environment.apiUrl,
+                { params: options }
             )
             .pipe(map((books) => books.items || []));
     }

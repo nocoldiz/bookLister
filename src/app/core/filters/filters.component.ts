@@ -13,4 +13,10 @@ export class FiltersComponent {
     @Input() filters: Filters;
     @Output() add = new EventEmitter<string>();
 
+    onKeyUp = () => {
+        console.log("Refresh");
+        console.log(this.filters.search);
+
+    }
+
 }

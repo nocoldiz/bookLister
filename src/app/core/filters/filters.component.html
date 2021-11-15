@@ -2,22 +2,22 @@
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by title</mat-label>
 
-    <input matInput type="text" [(ngModel)]="filters.query">
+    <input (keyup)="onKeyUp()" matInput type="text" [value]="filters.search">
   </mat-form-field>
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by author</mat-label>
 
-    <input matInput type="text" [(ngModel)]="filters.author">
+    <input (keyup)="onKeyUp()" matInput type="text" [(ngModel)]="filters.author">
   </mat-form-field>
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by ISBN</mat-label>
 
-    <input matInput type="text" [(ngModel)]="filters.isbn">
+    <input (keyup)="onKeyUp()" matInput type="text" [(ngModel)]="filters.isbn">
   </mat-form-field>
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by publisher</mat-label>
 
-    <input matInput type="text" [(ngModel)]="filters.publisher">
+    <input (keyup)="onKeyUp()" matInput type="text" [(ngModel)]="filters.publisher">
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Search by category</mat-label>
