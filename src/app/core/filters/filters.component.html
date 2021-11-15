@@ -2,7 +2,7 @@
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by title</mat-label>
 
-    <input (keyup)="onKeyUp()" matInput type="text" [value]="filters.search">
+    <input (keyup)="onKeyUp()" matInput type="text" [(ngModel)]="filters.search">
   </mat-form-field>
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by author</mat-label>

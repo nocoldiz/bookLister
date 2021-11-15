@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { FavouritesReducer } from './store/reducers/favourites.reducer';
 import { BookReducer } from './store/reducers/book.reducer';
-import { FiltersReducer } from './store/reducers/filters.reducer';
 
 // Custom components
 import { BookListComponent } from './core/book-list/book-list.component'
@@ -54,7 +53,7 @@ import { MatSelectModule } from "@angular/material/select"
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({ books: BookReducer, favourites: FavouritesReducer, filters: FiltersReducer }),
+    StoreModule.forRoot({ books: BookReducer, favourites: FavouritesReducer }),
     BrowserAnimationsModule,
     HttpClientModule,
     MatCardModule,

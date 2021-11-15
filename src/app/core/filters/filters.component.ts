@@ -9,8 +9,14 @@ import subjectsArray from 'src/assets/categories.json';
     styleUrls: ['./filters.component.scss'],
 })
 export class FiltersComponent {
+    filters: Filters = {
+        author: "",
+        isbn: "",
+        search: "",
+        publisher: "",
+        subject: ""
+    }
     subjects = subjectsArray;
-    @Input() filters: Filters;
     @Output() add = new EventEmitter<string>();
 
     onKeyUp = () => {
