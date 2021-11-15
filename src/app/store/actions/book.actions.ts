@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { Filters } from 'src/app/models/filters.model';
 import { Book } from '../../models/book.model';
 
 export const enum BookActionTypes {
@@ -20,7 +21,21 @@ export const removeBook = createAction(
     props<{ bookId: string }>()
 );
 
-export const retrievedBookList = createAction(
+export const getBooks = createAction(
+    BookActionTypes.GET_BOOKS,
+    props<{ filters: Filters }>()
+);
+
+export const getBooksSuccess = createAction(
     BookActionTypes.GET_BOOKS_SUCCESS,
     props<{ books: ReadonlyArray<Book> }>()
 );
+
+export const getBooksFailure = createAction(
+    BookActionTypes.GET_BOOKS_FAILURE,
+);
+
+
+
+
+

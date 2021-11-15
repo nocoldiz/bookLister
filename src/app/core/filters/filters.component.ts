@@ -5,7 +5,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/operators';
 
 import { Store } from '@ngrx/store';
-import { retrievedBookList } from 'src/app/store/actions/book.actions';
+import { getBooksSuccess } from 'src/app/store/actions/book.actions';
 import { fromEvent } from 'rxjs';
 @Component({
     selector: 'app-filters',
@@ -88,7 +88,7 @@ export class FiltersComponent {
     onKeyUp = () => {
         this.apiService
             .getBooks(this.filters)
-            .subscribe((books) => this.store.dispatch(retrievedBookList({ books })));
+            .subscribe((books) => this.store.dispatch(getBooksSuccess({ books })));
 
     }
     constructor(

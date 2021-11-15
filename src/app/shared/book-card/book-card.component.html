@@ -1,6 +1,6 @@
 <mat-card class="book-card">
 
-  <img mat-card-image src={{book.volumeInfo.imageLinks.thumbnail}} alt="Photo of  {{book.volumeInfo.title}}">
+  <img mat-card-image src={{book.volumeInfo.imageLinks?.thumbnail}} alt="Photo of  {{book.volumeInfo.title}}">
   <mat-card-header>
     <mat-card-title>
       {{book.volumeInfo.title}}

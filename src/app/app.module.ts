@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { FavouritesReducer } from './store/reducers/favourites.reducer';
 import { BookReducer } from './store/reducers/book.reducer';
+import { BookEffects } from './store/effects/book.effects';
 
 // Custom components
 import { BookListComponent } from './core/book-list/book-list.component'
@@ -36,6 +37,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDividerModule } from "@angular/material/divider"
 import { MatSelectModule } from "@angular/material/select"
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { MatSelectModule } from "@angular/material/select"
     AppRoutingModule,
     FormsModule,
     StoreModule.forRoot({ books: BookReducer, favourites: FavouritesReducer }),
+    EffectsModule.forRoot([BookEffects]),
     BrowserAnimationsModule,
     HttpClientModule,
     MatCardModule,

@@ -6,7 +6,7 @@ import { selectBooks } from '../../store/selectors/book.selector';
 import {
     removeBook,
     addBook,
-    retrievedBookList
+    getBooksSuccess
 } from '../../store/actions/book.actions';
 import { Filters } from 'src/app/models/filters.model';
 
@@ -17,7 +17,7 @@ import { Filters } from 'src/app/models/filters.model';
 })
 export class BookListComponent {
     request: Filters = {
-        search: "Stephen King",
+        search: "Angular",
         author: "",
         isbn: "",
         publisher: "",
@@ -29,7 +29,7 @@ export class BookListComponent {
     ngOnInit() {
         this.apiService
             .getBooks(this.request)
-            .subscribe((books) => this.store.dispatch(retrievedBookList({ books })));
+            .subscribe((books) => this.store.dispatch(getBooksSuccess({ books })));
     }
 
     onAdd(bookId: string) {
