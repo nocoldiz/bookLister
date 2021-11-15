@@ -1,6 +1,6 @@
 <mat-card class="book-card">
 
-  <img class="book-image" mat-card-image src={{book.volumeInfo.imageLinks?.thumbnail}}
+  <img class=" book-image" mat-card-image src={{book.volumeInfo.imageLinks?.thumbnail}}
     alt="Photo of  {{book.volumeInfo.title}}">
   <mat-card-header>
     <mat-card-title>
@@ -12,7 +12,8 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <button mat-button>Open</button>
+    <button mat-button (click)="openDialog()">Open</button>
+    <button mat-button (click)="saveBook(book.id)">Save</button>
 
   </mat-card-content>
 </mat-card>

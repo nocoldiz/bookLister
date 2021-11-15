@@ -16,6 +16,7 @@ import { BookListComponent } from './core/book-list/book-list.component'
 import { BookFavouritesComponent } from './core/book-favourites/book-favourites.component';
 import { BookCardComponent } from './shared/book-card/book-card.component';
 import { FiltersComponent } from './core/filters/filters.component';
+import { BookModalComponent } from './shared/book-modal/book-modal.component'
 
 //Import Layout components
 import { NavbarComponent } from './core/navbar/navbar.component';
@@ -50,6 +51,7 @@ import { EffectsModule } from '@ngrx/effects';
     DrawerComponent,
     FooterComponent,
     FiltersComponent,
+    BookModalComponent
   ],
   imports: [
     BrowserModule,
