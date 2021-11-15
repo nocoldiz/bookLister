@@ -3,9 +3,9 @@ import { Book } from '../../models/book.model';
 
 import { getBooksSuccess } from '../actions/book.actions';
 
-export const initialState: ReadonlyArray<Book> = [];
+export const initialBookState: ReadonlyArray<Book> = [];
 
 export const BookReducer = createReducer(
-    initialState,
+    initialBookState,
     on(getBooksSuccess, (state, { books }) => books)
 );

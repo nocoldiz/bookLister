@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  value = 'Searchg';
+  toggleDrawer(): void {
 
+
+  }
   constructor() { }
 
   ngOnInit(): void {

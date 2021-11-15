@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: 'favourites', component: BookFavouritesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: BookListComponent }
-
 ];
 
 @NgModule({

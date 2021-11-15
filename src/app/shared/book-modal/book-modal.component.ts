@@ -16,15 +16,13 @@ export interface BookModal {
 
 export class BookModalComponent {
     book: Book;
-
-    constructor(
-        public dialogRef: MatDialogRef<BookModal>,
-        @Inject(MAT_DIALOG_DATA) public data: BookModal,
-    ) {
-    }
-
     onNoClick(): void {
         this.dialogRef.close();
     }
+    constructor(
+        public dialogRef: MatDialogRef<BookModal>,
+        @Inject(MAT_DIALOG_DATA) public data: BookModal,
+    ) { }
+
 }
 

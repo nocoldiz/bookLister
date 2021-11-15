@@ -8,7 +8,6 @@ export const FavouritesReducer = createReducer(
     on(addBook, (state, { bookId }) => state.filter((id) => id !== bookId)),
     on(removeBook, (state, { bookId }) => {
         if (state.indexOf(bookId) > -1) return state;
-
         return [...state, bookId];
     })
 );

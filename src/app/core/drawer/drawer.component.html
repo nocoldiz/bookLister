@@ -10,4 +10,4 @@
 </button>
 
 <mat-divider></mat-divider>
-<app-filters></app-filters>
+<app-filters *ngIf="!isFavouritesRouter()"></app-filters>
