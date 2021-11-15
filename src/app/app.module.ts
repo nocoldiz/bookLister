@@ -59,7 +59,7 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({ books: BookReducer, favourites: FavouritesReducer }),
+    StoreModule.forRoot({ books: BookReducer }),
     EffectsModule.forRoot([BookEffects]),
     BrowserAnimationsModule,
     HttpClientModule,

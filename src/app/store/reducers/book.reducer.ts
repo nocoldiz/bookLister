@@ -1,11 +1,25 @@
 import { createReducer, on } from '@ngrx/store';
 import { Book } from '../../models/book.model';
 
-import { getBooksSuccess } from '../actions/book.actions';
+import { getBooks, getBooksSuccess } from '../actions/book.actions';
 
-export const initialBookState: ReadonlyArray<Book> = [];
+export interface BookState {
+    books: ReadonlyArray<Book>;
+    isLoading: boolean;
+    loaded: boolean;
+}
+
+export const initialBookState: BookState = {
+    books: [],
+    isLoading: false,
+    loaded: false
+}
 
 export const BookReducer = createReducer(
     initialBookState,
-    on(getBooksSuccess, (state, { books }) => books)
+    on(getBooks, state => ({ ...state, isLoading: true })),
+    on(getBooksSuccess, (state, { books }) => ({ ...state, books: books, isLoading: false })),
+
 );
+
+

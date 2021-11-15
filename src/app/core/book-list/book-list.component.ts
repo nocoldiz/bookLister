@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Store } from '@ngrx/store';
-import { selectBooks } from '../../store/selectors/book.selector';
+import { getBookList, getBookState, getIsLoading } from '../../store/selectors/book.selector';
 
 import {
     removeBook,
@@ -24,10 +24,13 @@ export class BookListComponent {
         publisher: "",
         subject: ""
     }
+    books$ = this.store.select(getBookList);
 
-    books$ = this.store.select(selectBooks);
+    books2$ = this.store.select(getBookState);
+
 
     ngOnInit() {
+        this.books2$.subscribe(res => console.log(res));
         this.store.dispatch(getBooks({ filters: this.request }));
         /*
         this.apiService
