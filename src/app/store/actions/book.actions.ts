@@ -41,7 +41,6 @@ export const getBooksFromAuthor = createAction(
 export const getBooksFailure = createAction(
     BookActionTypes.GET_BOOKS_FAILURE,
     props<{ error: string }>()
-
 );
 
 

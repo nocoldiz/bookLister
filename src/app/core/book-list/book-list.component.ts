@@ -26,11 +26,12 @@ export class BookListComponent {
     }
     books$ = this.store.select(getBookList);
 
-    books2$ = this.store.select(getBookState);
+    isLoading$ = this.store.select(getIsLoading);
 
 
     ngOnInit() {
-        this.books2$.subscribe(res => console.log(res));
+        this.isLoading$.subscribe(res => console.log(res));
+
         this.store.dispatch(getBooks({ filters: this.request }));
         /*
         this.apiService
