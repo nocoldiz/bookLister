@@ -6,14 +6,12 @@
     <mat-card-title>
       {{book.volumeInfo.title}}
     </mat-card-title>
-    <mat-card-subtitle>
+    <mat-card-subtitle class="pointer" (click)="openAuthor(book.volumeInfo.authors.toString())">
       {{book.volumeInfo.authors}}
-
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <button mat-button (click)="openDialog()">Open</button>
     <button mat-button (click)="saveBook(book.id)">Save</button>
-
   </mat-card-content>
 </mat-card>

@@ -8,6 +8,7 @@ export const enum BookActionTypes {
     GET_BOOKS = '[API] Retrieve Books',
     GET_BOOKS_SUCCESS = '[API] Retrieve Books Success',
     GET_BOOKS_FAILURE = '[API] Retrieve Books Failure',
+    GET_BOOKS_FROM_AUTHOR = '[API] Retrieve Books From Author',
 };
 
 
@@ -30,6 +31,12 @@ export const getBooksSuccess = createAction(
     BookActionTypes.GET_BOOKS_SUCCESS,
     props<{ books: ReadonlyArray<Book> }>()
 );
+
+export const getBooksFromAuthor = createAction(
+    BookActionTypes.GET_BOOKS_FROM_AUTHOR,
+    props<{ author: string }>()
+);
+
 
 export const getBooksFailure = createAction(
     BookActionTypes.GET_BOOKS_FAILURE,

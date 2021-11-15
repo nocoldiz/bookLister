@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import { Book } from 'src/app/models/book.model';
+import { getBooksFromAuthor } from 'src/app/store/actions/book.actions';
 import { BookModalComponent } from '../book-modal/book-modal.component'
 @Component({
   selector: 'book-card',
@@ -25,13 +27,19 @@ export class BookCardComponent implements OnInit {
     });
   }
 
+  openAuthor(author: string): void {
+    this.store.dispatch(getBooksFromAuthor({ author: author }));
+
+  }
+
+
 
   saveBook(id: string): void {
     console.log(id);
 
   }
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public store: Store) { }
   ngOnInit(): void {
   }
 

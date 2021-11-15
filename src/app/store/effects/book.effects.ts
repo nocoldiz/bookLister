@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, catchError, exhaustMap, tap } from 'rxjs/operators';
 import { ApiService } from '../../services/api.service'
-import { getBooks, getBooksSuccess, getBooksFailure } from '../actions/book.actions';
+import { getBooks, getBooksSuccess, getBooksFailure, getBooksFromAuthor } from '../actions/book.actions';
 @Injectable()
 export class BookEffects {
 
@@ -20,6 +20,25 @@ export class BookEffects {
                 }).pipe(
                     map((response) => getBooksSuccess({ books: response })),
                     catchError((e) => of(getBooksFailure({ error: e })))
+                )
+            )
+        )
+    );
+
+
+    loadBooksByAuthor$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(getBooksFromAuthor),
+            exhaustMap((action) =>
+                this.apiService.getBooks({
+                    search: "",
+                    author: action.author,
+                    isbn: "",
+                    publisher: "",
+                    subject: ""
+                }).pipe(
+                    map((response) => getBooksSuccess({ books: response })),
+                    catchError((e: string) => of(getBooksFailure({ error: e })))
                 )
             )
         )
