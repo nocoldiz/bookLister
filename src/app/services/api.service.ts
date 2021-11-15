@@ -13,6 +13,8 @@ export class ApiService {
 
     getBooks(filters: Filters): Observable<Array<Book>> {
 
+
+
         let queryString = filters.search;
         if (filters) queryString.concat('+inauthor:').concat(filters.author);
         console.log(queryString)
