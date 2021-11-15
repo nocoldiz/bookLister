@@ -11,10 +11,7 @@ import { Filters } from '../models/filters.model';
 export class ApiService {
     constructor(private http: HttpClient) { }
 
-    getBooks(filters: Filters): Observable<Array<Book>> {
-
-
-
+    getBooks(filters: Filters): Observable<ReadonlyArray<Book>> {
         let queryString = filters.search;
         if (filters) queryString.concat('+inauthor:').concat(filters.author);
         console.log(queryString)
@@ -23,11 +20,10 @@ export class ApiService {
             .set('orderBy', 'relevance')
             .set('q', queryString)
 
-        return this.http
-            .get<{ items: Book[] }>(
-                environment.apiUrl,
-                { params: options }
-            )
-            .pipe(map((books) => books.items || []));
+        return this.http.get<{ items: Book[] }>(
+            environment.apiUrl,
+            { params: options }
+        )
+            .pipe(map((books) => books.items || []),);
     }
 }
