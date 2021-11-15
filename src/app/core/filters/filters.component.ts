@@ -18,84 +18,24 @@ export class FiltersComponent {
     @ViewChild('isbn') isbn: ElementRef;
     @ViewChild('subject') subject: ElementRef;
     @ViewChild('publisher') publisher: ElementRef;
-
-    filters: Filters = {
-        author: "",
-        isbn: "",
-        search: "",
-        publisher: "",
-        subject: ""
-    }
     subjects = subjectsArray;
-    @Output() add = new EventEmitter<string>();
+    onKey = () => {
+        console.log(this.search.nativeElement.value);
 
-
-    ngAfterViewInit() {
-        // server-side search
-        fromEvent(this.search.nativeElement, 'keyup')
-            .pipe(
-                filter(Boolean),
-                debounceTime(800),
-                distinctUntilChanged(),
-                tap(() => {
-                    this.onKeyUp();
-
-                    this.store.dispatch(getBooks({ filters: this.filters }));
-                })
-            )
-            .subscribe();
-        fromEvent(this.author.nativeElement, 'keyup')
-            .pipe(
-                filter(Boolean),
-                debounceTime(800),
-                distinctUntilChanged(),
-                tap(() => {
-                    this.onKeyUp();
-                })
-            )
-            .subscribe();
-        fromEvent(this.subject.nativeElement, 'keyup')
-            .pipe(
-                filter(Boolean),
-                debounceTime(800),
-                distinctUntilChanged(),
-                tap(() => {
-                    this.onKeyUp();
-                })
-            )
-            .subscribe();
-        fromEvent(this.isbn.nativeElement, 'keyup')
-            .pipe(
-                filter(Boolean),
-                debounceTime(800),
-                distinctUntilChanged(),
-                tap(() => {
-                    this.onKeyUp();
-                })
-            )
-            .subscribe();
-        fromEvent(this.publisher.nativeElement, 'keyup')
-            .pipe(
-                filter(Boolean),
-                debounceTime(800),
-                distinctUntilChanged(),
-                tap(() => {
-                    this.onKeyUp();
-                })
-            )
-            .subscribe();
-    }
-
-
-    onKeyUp = () => {
-
-
-        //this.store.dispatch(getBooks({ filters: this.filters }));
-
-        this.apiService
-            .getBooks(this.filters)
-            .subscribe((books) => this.store.dispatch(getBooksSuccess({ books })));
-
+        this.store.dispatch(getBooks({
+            filters: {
+                search: this.search.nativeElement.value,
+                author: this.author.nativeElement.value,
+                isbn: this.isbn.nativeElement.value,
+                publisher: this.publisher.nativeElement.value,
+                subject: "ss",
+            }
+        }));
+        /*
+                this.apiService
+                    .getBooks(this.filters)
+                    .subscribe((books) => this.store.dispatch(getBooksSuccess({ books })));
+        */
     }
     constructor(
         private apiService: ApiService,
