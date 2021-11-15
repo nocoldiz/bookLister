@@ -14,12 +14,12 @@ export class ApiService {
     getBooks(filters: Filters): Observable<Array<Book>> {
 
         let queryString = filters.search;
-        if (filters.author) queryString.concat('+inauthor:').concat(filters.author);
-
+        if (filters) queryString.concat('+inauthor:').concat(filters.author);
+        console.log(queryString)
         const options = new HttpParams()
             .set('maxResults', 30)
             .set('orderBy', 'relevance')
-            .set('q', filters.search)
+            .set('q', queryString)
 
         return this.http
             .get<{ items: Book[] }>(

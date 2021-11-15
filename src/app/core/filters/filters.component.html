@@ -1,27 +1,25 @@
 <div>
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by title</mat-label>
-
-    <input (keyup)="onKeyUp()" matInput type="text" [(ngModel)]="filters.search">
+    <input #search matInput type="text" [(ngModel)]="filters.search">
   </mat-form-field>
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by author</mat-label>
-
-    <input (keyup)="onKeyUp()" matInput type="text" [(ngModel)]="filters.author">
+    <input #author matInput type="text" [(ngModel)]="filters.author">
   </mat-form-field>
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by ISBN</mat-label>
 
-    <input (keyup)="onKeyUp()" matInput type="text" [(ngModel)]="filters.isbn">
+    <input #isbn matInput type="text" [(ngModel)]="filters.isbn">
   </mat-form-field>
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by publisher</mat-label>
 
-    <input (keyup)="onKeyUp()" matInput type="text" [(ngModel)]="filters.publisher">
+    <input #publisher matInput type="text" [(ngModel)]="filters.publisher">
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Search by category</mat-label>
-    <mat-select>
+    <mat-select #subject>
       <mat-option *ngFor="let subject of subjects" [value]="filters.subject">
         {{subject}}
       </mat-option>
