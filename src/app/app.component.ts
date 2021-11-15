@@ -24,12 +24,12 @@ export class AppComponent {
         if (res.matches) {
           this.sidenav.mode = 'over';
           this.sidenav.close();
-          this.store.dispatch(setDrawer({ open: false }));
+          // this.store.dispatch(setDrawer({ open: false }));
 
         } else {
           this.sidenav.mode = 'side';
           this.sidenav.open();
-          this.store.dispatch(setDrawer({ open: true }));
+          // this.store.dispatch(setDrawer({ open: true }));
 
         }
       });

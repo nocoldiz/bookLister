@@ -1,4 +1,16 @@
-import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { AppUtils } from 'src/app/models/app-utils.model';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { UtilsState } from '../reducers/app-utils.reducer';
 
-export const selectUtils = createFeatureSelector<AppUtils>('utils');
+
+
+export const getUtilsState = createFeatureSelector<UtilsState>('utils');
+
+export const getDrawer = createSelector(
+    getUtilsState,
+    (state: UtilsState) => state.drawerIsOpen
+);
+export const getListMode = createSelector(
+    getUtilsState,
+    (state: UtilsState) => state.listMode
+);
+
