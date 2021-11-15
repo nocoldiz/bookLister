@@ -1,11 +1,19 @@
 .book-card {
-  margin: 0.1rem;
-  height: auto;
+  margin: 0.3rem;
+}
 
+.mat-card-title {
+  font-size: medium;
 }
 
 .book-image {
-  height: auto;
+  height: 25vw;
+}
+
+@media only screen and (max-width: 765px) {
+  .book-image {
+    height: unset;
+  }
 }
 
 

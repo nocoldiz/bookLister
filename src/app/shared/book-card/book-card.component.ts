@@ -28,6 +28,9 @@ export class BookCardComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+  onImgError(event: any) {
+    event.target.src = 'assets/default.jpg';
+  }
 
   openAuthor(author: string): void {
     this.store.dispatch(getBooksFromAuthor({ author: author }));
