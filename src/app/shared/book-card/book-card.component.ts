@@ -11,6 +11,8 @@ import { BookModalComponent } from '../book-modal/book-modal.component'
 })
 
 
+
+
 export class BookCardComponent implements OnInit {
   @Input() book: Book;
   openDialog(): void {
@@ -41,6 +43,7 @@ export class BookCardComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public store: Store) { }
   ngOnInit(): void {
+
   }
 
 }

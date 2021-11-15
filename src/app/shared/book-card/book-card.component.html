@@ -2,16 +2,17 @@
 
   <img class=" book-image" mat-card-image src={{book.volumeInfo.imageLinks?.thumbnail}}
     alt="Photo of  {{book.volumeInfo.title}}">
-  <mat-card-header>
-    <mat-card-title>
-      {{book.volumeInfo.title}}
-    </mat-card-title>
-    <mat-card-subtitle class="pointer" (click)="openAuthor(book.volumeInfo.authors.toString())">
-      {{book.volumeInfo.authors}}
-    </mat-card-subtitle>
-  </mat-card-header>
   <mat-card-content>
-    <button mat-button (click)="openDialog()">Open</button>
-    <button mat-button (click)="saveBook(book.id)">Save</button>
+    {{book.volumeInfo.description | slice:0:200}}...
+
   </mat-card-content>
+
+  <mat-card-actions>
+
+    <button mat-button (click)="openDialog()">Open</button>
+    <button mat-button (click)="openAuthor(book.volumeInfo.authors.toString())">Explore author</button>
+
+    <button mat-button (click)="saveBook(book.id)">Save</button>
+  </mat-card-actions>
+
 </mat-card>
