@@ -6,7 +6,8 @@ import { selectBooks } from '../../store/selectors/book.selector';
 import {
     removeBook,
     addBook,
-    getBooksSuccess
+    getBooksSuccess,
+    getBooks
 } from '../../store/actions/book.actions';
 import { Filters } from 'src/app/models/filters.model';
 
@@ -27,9 +28,12 @@ export class BookListComponent {
     books$ = this.store.select(selectBooks);
 
     ngOnInit() {
+        this.store.dispatch(getBooks({ filters: this.request }));
+        /*
         this.apiService
             .getBooks(this.request)
             .subscribe((books) => this.store.dispatch(getBooksSuccess({ books })));
+            */
     }
 
     onAdd(bookId: string) {

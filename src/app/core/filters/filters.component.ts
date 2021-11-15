@@ -5,7 +5,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/operators';
 
 import { Store } from '@ngrx/store';
-import { getBooksSuccess } from 'src/app/store/actions/book.actions';
+import { getBooks, getBooksSuccess } from 'src/app/store/actions/book.actions';
 import { fromEvent } from 'rxjs';
 @Component({
     selector: 'app-filters',
@@ -39,6 +39,8 @@ export class FiltersComponent {
                 distinctUntilChanged(),
                 tap(() => {
                     this.onKeyUp();
+
+                    this.store.dispatch(getBooks({ filters: this.filters }));
                 })
             )
             .subscribe();
@@ -86,6 +88,10 @@ export class FiltersComponent {
 
 
     onKeyUp = () => {
+
+
+        //this.store.dispatch(getBooks({ filters: this.filters }));
+
         this.apiService
             .getBooks(this.filters)
             .subscribe((books) => this.store.dispatch(getBooksSuccess({ books })));

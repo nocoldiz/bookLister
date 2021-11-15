@@ -7,17 +7,11 @@ import { ApiService } from '../../services/api.service'
 import { getBooks, getBooksSuccess, getBooksFailure } from '../actions/book.actions';
 @Injectable()
 export class BookEffects {
-    request: Filters = {
-        search: "Angulars",
-        author: "",
-        isbn: "",
-        publisher: "",
-        subject: ""
-    }
+
     loadBooks$ = createEffect(() =>
         this.actions$.pipe(
             ofType(getBooks),
-            tap((movie) => console.log("TAP", movie)),
+            tap((filters) => console.log(filters)),
             exhaustMap(() =>
                 this.apiService.getBooks({
                     search: "Angular",
