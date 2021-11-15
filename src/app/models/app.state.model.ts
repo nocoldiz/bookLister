@@ -5,5 +5,7 @@ export interface AppState {
     books: ReadonlyArray<Book>;
     favourites: Array<string>;
     filters: Filters;
+    error: string,
+    loading: boolean
 
 }
