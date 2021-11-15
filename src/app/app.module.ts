@@ -38,6 +38,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDividerModule } from "@angular/material/divider"
 import { MatSelectModule } from "@angular/material/select"
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
@@ -73,7 +75,8 @@ import { EffectsModule } from '@ngrx/effects';
     MatSlideToggleModule,
     MatSidenavModule,
     MatDividerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
