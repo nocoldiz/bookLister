@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { EMPTY, EmptyError, of } from 'rxjs';
-import { map, mergeMap, catchError, exhaustMap, tap } from 'rxjs/operators';
-import { Filters } from 'src/app/models/filters.model';
+import { of } from 'rxjs';
+import { map, catchError, exhaustMap, tap } from 'rxjs/operators';
 import { ApiService } from '../../services/api.service'
 import { getBooks, getBooksSuccess, getBooksFailure } from '../actions/book.actions';
 @Injectable()
@@ -11,14 +10,13 @@ export class BookEffects {
     loadBooks$ = createEffect(() =>
         this.actions$.pipe(
             ofType(getBooks),
-            tap((filters) => console.log(filters)),
-            exhaustMap(() =>
+            exhaustMap((req) =>
                 this.apiService.getBooks({
-                    search: "Angular",
-                    author: "",
-                    isbn: "",
-                    publisher: "",
-                    subject: ""
+                    search: req.filters.search,
+                    author: req.filters.author,
+                    isbn: req.filters.isbn,
+                    publisher: req.filters.publisher,
+                    subject: req.filters.subject
                 }).pipe(
                     map((response) => getBooksSuccess({ books: response })),
                     catchError((e) => of(getBooksFailure({ error: e })))
@@ -35,21 +33,3 @@ export class BookEffects {
 }
 
 
-
-/*
-
-
-    request = { search: "Stephen King", isbn: "", author: "", publisher: "", subject: "" }
-
-    loadBooks$ = createEffect(() =>
-        this.actions$.pipe(
-            ofType(getBooks),
-            tap((books) => console.log(books)),
-            exhaustMap(() =>
-                this.apiService.getBooks(filters: request)
-                    .pipe(
-                        map(books => ({ getBooksSuccess({ books }) })),
-                        catchError(() => EMPTY)
-                    ))
-        )
-    );*/

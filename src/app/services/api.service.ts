@@ -12,13 +12,19 @@ export class ApiService {
     constructor(private http: HttpClient) { }
 
     getBooks(filters: Filters): Observable<ReadonlyArray<Book>> {
-        let queryString = filters.search;
-        if (filters) queryString.concat('+inauthor:').concat(filters.author);
-        console.log(queryString)
+        let queryString = " ";
+        if (!filters.search) filters.search = "";
+        if (filters.search) queryString = queryString.concat('+intitle:').concat(filters.search)
+        if (filters.author) queryString = queryString.concat('+inauthor:').concat(filters.author)
+        if (filters.publisher) queryString = queryString.concat('+inpublisher:').concat(filters.publisher)
+        if (filters.subject) queryString = queryString.concat('+subject:').concat(filters.subject)
+        if (filters.isbn) queryString = queryString.concat('+isbn:').concat(filters.isbn)
+
+        console.log("&q=" + queryString)
         const options = new HttpParams()
-            .set('maxResults', 30)
-            .set('orderBy', 'relevance')
             .set('q', queryString)
+            .set('orderBy', 'relevance')
+            .set('maxResults', 30)
 
         return this.http.get<{ items: Book[] }>(
             environment.apiUrl,
