@@ -20,6 +20,14 @@ export class FiltersComponent {
     @ViewChild('subject') subject: MatSelect;
     @ViewChild('publisher') publisher: ElementRef;
     subjects = subjectsArray;
+    resetFilters = () => {
+        this.search.nativeElement.value = "";
+        this.author.nativeElement.value = "";
+        this.isbn.nativeElement.value = "";
+        this.publisher.nativeElement.value = "";
+        this.subject.value = "";
+        this.onKey();
+    }
 
     onKey = () => {
         this.store.dispatch(getBooks({

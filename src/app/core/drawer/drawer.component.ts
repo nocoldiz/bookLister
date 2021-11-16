@@ -11,9 +11,7 @@ export class DrawerComponent implements OnInit {
     return this.router.url === '/favourites';
   }
 
-
   ngOnInit(): void { }
 
   constructor(private router: Router) { }
-
 }

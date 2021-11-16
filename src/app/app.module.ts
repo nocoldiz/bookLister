@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 //Ngrx Store 
 import { StoreModule } from '@ngrx/store';
-import { FavouritesReducer } from './store/reducers/favourites.reducer';
 import { BookReducer } from './store/reducers/book.reducer';
 import { BookEffects } from './store/effects/book.effects';
 
@@ -20,9 +19,7 @@ import { BookModalComponent } from './shared/book-modal/book-modal.component'
 
 //Import Layout components
 import { NavbarComponent } from './core/navbar/navbar.component';
-import { HeaderComponent } from './core/header/header.component';
 import { DrawerComponent } from './core/drawer/drawer.component';
-import { FooterComponent } from './core/footer/footer.component';
 //Import material components
 import { MatCardModule } from '@angular/material/card';
 //import { MatCardAcModule } from '@angular/material/';
@@ -49,9 +46,7 @@ import { EffectsModule } from '@ngrx/effects';
     BookFavouritesComponent,
     BookCardComponent,
     NavbarComponent,
-    HeaderComponent,
     DrawerComponent,
-    FooterComponent,
     FiltersComponent,
     BookModalComponent
   ],

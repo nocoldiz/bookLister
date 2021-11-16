@@ -14,12 +14,12 @@ export const enum BookActionTypes {
 
 export const addBook = createAction(
     BookActionTypes.ADD_BOOK,
-    props<{ bookId: string }>()
+    props<{ book: Book }>()
 );
 
 export const removeBook = createAction(
     BookActionTypes.REMOVE_BOOK,
-    props<{ bookId: string }>()
+    props<{ books: ReadonlyArray<Book> }>()
 );
 
 export const getBooks = createAction(

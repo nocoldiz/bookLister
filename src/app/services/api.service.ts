@@ -29,7 +29,7 @@ export class ApiService {
         const options = new HttpParams()
             .set('q', this.createQuery(filters))
             .set('orderBy', 'relevance')
-            .set('maxResults', 30)
+            .set('maxResults', 40)
 
         return this.http.get<{ items: Book[] }>(
             environment.apiUrl,

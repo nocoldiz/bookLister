@@ -4,24 +4,28 @@
     <mat-label>Search by title</mat-label>
     <input #search matInput type="text" (keyup)="onKey()">
   </mat-form-field>
+
   <mat-divider></mat-divider>
 
   <mat-form-field class=" example-form-field" appearance="fill">
     <mat-label>Search by author</mat-label>
     <input #author matInput type="text" (keyup)="onKey()">
   </mat-form-field>
+
   <mat-divider></mat-divider>
 
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by ISBN</mat-label>
     <input #isbn matInput type="text" (keyup)="onKey()">
   </mat-form-field>
+
   <mat-divider></mat-divider>
 
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Search by publisher</mat-label>
     <input #publisher matInput type="text" (keyup)="onKey()">
   </mat-form-field>
+
   <mat-divider></mat-divider>
 
   <mat-form-field appearance="fill">
@@ -32,3 +36,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+
+  <mat-divider></mat-divider>
+
+  <button mat-button class="menu-button" (click)="resetFilters()"> Reset filters</button>
