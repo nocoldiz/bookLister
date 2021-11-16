@@ -1,5 +1,4 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { Book } from '../../models/book.model';
 import { BookState } from '../reducers/book.reducer';
 
 
@@ -13,6 +12,11 @@ export const getBookList = createSelector(
 export const getIsLoading = createSelector(
     getBookState,
     (state: BookState) => state.isLoading
+);
+
+export const getFavourites = createSelector(
+    getBookState,
+    (state: BookState) => state.favourites
 );
 /*
 export const selectBookFavourites = createSelector(
